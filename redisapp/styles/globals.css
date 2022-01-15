@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+h1{
+  padding: auto;
+  font-size: medium;
+  align-self: start;
+}
+div{
+  align-items: center;
+  align-content: center;
+}
