@@ -4,16 +4,16 @@ export default function CarForm() {
     const form = new FormData(event.target);
     const formdata = Object.fromEntries(form.entries());
     console.log(formdata);
-    
-    const res = await fetch('/pages/api/car', {
+
+    const res = await fetch('/pages/api/carros', {
       body: JSON.stringify(formdata),
       headers: {
         "Content=Type": "application/json",
       },
       method: "POST",
     });
-    const result=await res.JSON();
-    console.log(result)
+    const result = await res.JSON();
+    console.log(result);
   };
 
   return (

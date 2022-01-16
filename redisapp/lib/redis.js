@@ -15,7 +15,7 @@ let schema = new Schema(
     make: { type: "string" },
     model: { type: "string" },
     image: { type: "string" },
-    description: { type: "string" },
+    description: { type: "string", textSearch:true },
   },
   {
     dataStructure: "JSON",
@@ -26,6 +26,17 @@ export async function createCar(data) {
   await connect();
   const repository = new Repository(schema, client);
   const car = repository.createEntity(data);
-  const id = await repository.save(car);
+  const id = await repository.save(Carro);
   return id;
-}
+};
+export async function createIndex(){
+  await connect();
+  const repository = new Repository(schema,client);
+  await repository.createIndex()
+ }
+
+ export async function searchCars(q){
+await connect();
+const repository=new Repository(schema,client);
+const cars=await repository.search()
+ }
